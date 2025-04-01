@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional photography portfolio showcasing creative and artistic photography work">
+  <meta name="keywords" content="photography, portfolio, creative, artistic, portraits, landscapes, events">
+  <meta name="theme-color" content="#7C3AED">
+  <meta property="og:title" content="Vishal's Photography Portfolio">
+  <meta property="og:description" content="Professional photography portfolio showcasing creative photography work">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="your-preview-image.jpg">
+  <title>Vishal's Photography Portfolio</title>
+
+  <!-- Preload critical assets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" as="style">
+  
+  <!-- Stylesheets -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --color-text-primary: #E5E7EB;
+      --color-text-secondary: #9CA3AF;
+      --color-bg-primary: #111111;
+      --color-bg-secondary: #1F1F1F;
+      --color-accent: #C084FC;
+      --color-accent-light: #E9D8FD;
+      --color-accent-dark: #9F7AEA;
+      --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Light mode variables */
+    [data-theme="light"] {
+      --color-text-primary: #1F2937;
+      --color-text-secondary: #4B5563;
+      --color-bg-primary: #FFFFFF;
+      --color-bg-secondary: #F3F4F6;
+    }
+
+    /* Performance optimizations */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .will-change {
+      will-change: transform;
+    }
+
+    /* Improved accessibility */
+    :focus {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    @media (hover: hover) {
+      .nav-link:hover::after {
+        width: 100%;
+      }
+    }
+
+    /* Add smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+
+    /* Base typography */
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      background-color: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      transition: background-color 0.3s var(--transition-smooth),
+                  color 0.3s var(--transition-smooth);
+    }
+
+    h1, h2, h3, .serif-font {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    /* Typography enhancements */
+    .heading-xl {
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .heading-lg {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .heading-md {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    /* Glass effect */
+    .glass {
+      background: rgba(31, 31, 31, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Dark mode glass effect */
+    [data-theme="light"] .glass {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 50;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s var(--transition-smooth),
+                  box-shadow 0.3s var(--transition-smooth);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Dark mode specific styles */
+    [data-theme="dark"] .portfolio-card {
+      background: var(--color-bg-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="dark"] .portfolio-card:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .text-gray-600 {
+      color: var(--color-text-secondary);
+    }
+
+    [data-theme="dark"] .bg-gray-50 {
+      background-color: var(--color-bg-secondary);
+    }
+
+    [data-theme="dark"] .bg-white {
+      background-color: var(--color-bg-primary);
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .slide-up {
+      animation: slideUp 0.8s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Interactive elements */
+    .hover-lift {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--color-accent);
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Custom cursor */
+    .custom-cursor {
+      width: 20px;
+      height: 20px;
+      background-color: var(--color-accent);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s;
+      mix-blend-mode: difference;
+    }
+
+    .cursor-dot {
+      width: 5px;
+      height: 5px;
+      background-color: white;
+    }
+
+    /* Remove default cursor */
+    * {
+      cursor: none;
+    }
+
+    /* Show default cursor on touch devices */
+    @media (hover: none) {
+      * {
+        cursor: auto;
+      }
+      .custom-cursor {
+        display: none;
+      }
+    }
+
+    /* Progress bars */
+    .skill-bar {
+      height: 8px;
+      background: var(--color-bg-secondary);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: var(--color-accent);
+      border-radius: 4px;
+      transition: width 1s ease-in-out;
+    }
+
+    /* Portfolio cards */
+    .portfolio-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .portfolio-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-image img {
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-card:hover .portfolio-image img {
+      transform: scale(1.1);
+    }
+
+    /* Social icons */
+    .social-icon {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px) scale(1.2);
+      color: var(--color-accent);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .heading-xl {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+      }
+
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+
+    /* Enhanced animations */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      will-change: transform, opacity;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Landing section styles */
+    .landing-content {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .landing-name {
+      font-size: clamp(4rem, 8vw, 6rem);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      opacity: 1;
+      transform: translateY(0);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    .landing-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-top: 1rem;
+      opacity: 1;
+      transform: translateY(0);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+    }
+
+    /* Section transitions */
+    section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      will-change: transform, opacity;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Fix section visibility */
+    #about, #gallery, #services {
+      opacity: 1;
+      transform: translateY(0);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Smooth section transitions */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      will-change: transform, opacity;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Optimize images */
+    img {
+      max-width: 100%;
+      height: auto;
+      will-change: transform;
+    }
+
+    /* Smooth hover effects */
+    .portfolio-card {
+      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+      will-change: transform;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Optimize animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    /* Optimize transitions */
+    .transition-all {
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+    }
+
+    /* Optimize scrolling */
+    .smooth-scroll {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Optimize performance */
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .transform-gpu {
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+    }
+
+    /* Navigation styles */
+    .nav-link {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    /* Section headings */
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    /* Card headings */
+    .card-heading {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
+
+    /* Body text */
+    .body-text {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Service cards styles */
+    .service-card {
+      background: var(--color-bg-secondary);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--color-accent) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      border-color: var(--color-accent);
+    }
+
+    .service-card:hover::before {
+      opacity: 0.1;
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--color-accent);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--color-text-primary);
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-description {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Light mode adjustments */
+    [data-theme="light"] .service-card {
+      background: white;
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="light"] .service-card:hover {
+      border-color: var(--color-accent);
+    }
+
+    /* Gallery filter buttons */
+    .filter-button {
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      background: transparent;
+      border: none;
+      color: var(--color-text-secondary);
+      position: relative;
+    }
+
+    .filter-button::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transition: all 0.2s ease;
+      transform: translateX(-50%);
+    }
+
+    .filter-button:hover {
+      color: var(--color-accent);
+    }
+
+    .filter-button:hover::after {
+      width: 80%;
+    }
+
+    .filter-button.active {
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    .filter-button.active::after {
+      width: 100%;
+    }
+
+    /* Light mode adjustments */
+    [data-theme="light"] .filter-button {
+      color: var(--color-text-secondary);
+    }
+
+    [data-theme="light"] .filter-button:hover,
+    [data-theme="light"] .filter-button.active {
+      color: var(--color-accent);
+    }
+  </style>
+  <script src="photos.js" defer></script>
+</head>
+<body class="antialiased">
+  <div id="cursor" class="custom-cursor"></div>
+  <div id="cursor-dot" class="custom-cursor cursor-dot"></div>
+  
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <header class="glass fixed w-full z-10 transition-colors duration-300">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="serif-font text-2xl font-semibold text-white hover:text-accent transition-colors duration-300">
+        Vishal
+      </a>
+      <nav class="hidden md:flex space-x-8" role="navigation" aria-label="Main navigation">
+        <a class="nav-link text-gray-200 hover:text-white transition duration-300" href="#home">Home</a>
+        <a class="nav-link text-gray-200 hover:text-white transition duration-300" href="#about">About</a>
+        <a class="nav-link text-gray-200 hover:text-white transition duration-300" href="#gallery">Gallery</a>
+        <a class="nav-link text-gray-200 hover:text-white transition duration-300" href="#services">Services</a>
+      </nav>
+      <button 
+        class="md:hidden text-gray-200 focus:outline-none p-2 rounded-lg hover:bg-white/10 transition duration-300" 
+        id="menu-btn" 
+        aria-label="Toggle menu" 
+        aria-expanded="false" 
+        aria-controls="mobile-menu"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div 
+      class="hidden md:hidden transition-all duration-300 ease-in-out" 
+      id="mobile-menu" 
+      role="menu" 
+      aria-labelledby="menu-btn"
+    >
+      <a class="block px-4 py-2 text-gray-200 hover:bg-white/10 transition duration-300" href="#home">Home</a>
+      <a class="block px-4 py-2 text-gray-200 hover:bg-white/10 transition duration-300" href="#about">About</a>
+      <a class="block px-4 py-2 text-gray-200 hover:bg-white/10 transition duration-300" href="#gallery">Gallery</a>
+      <a class="block px-4 py-2 text-gray-200 hover:bg-white/10 transition duration-300" href="#services">Services</a>
+    </div>
+  </header>
+
+  <section class="relative h-screen bg-cover bg-center" id="home" style="background-image: url('/images/landscapes/IMG_6398.jpg')" role="banner">
+    <!-- Dark overlay for better text readability -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70"></div>
+    
+    <!-- Minimal content -->
+    <div class="relative container mx-auto h-full flex flex-col justify-center items-center landing-content">
+      <h1 class="landing-name font-semibold">
+        Vishal
+      </h1>
+      <p class="landing-title font-light">
+        Photographer & AI Developer
+      </p>
+      <div class="mt-12">
+        <a href="#gallery" class="inline-block px-8 py-3 bg-accent/80 hover:bg-accent text-white rounded-full transition duration-300 text-lg">
+          View My Work
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white fade-in-section" id="about">
+    <div class="container mx-auto px-6">
+      <h2 class="heading-lg font-semibold text-center mb-12">About Me</h2>
+      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+        <div class="space-y-6">
+          <div class="text-gray-700">
+            <h3 class="heading-md font-semibold mb-4">The Tech-Savvy Photographer</h3>
+            <p class="mb-4 leading-relaxed">
+              I'm Vishal, a unique blend of technology and creativity. Currently pursuing my BTech in AI & ML at Oriental College of Technology, Bhopal, I combine my technical expertise with my passion for photography. Originally from Barhi, Jharkhand, I've been capturing moments while exploring the fascinating intersection of AI and visual arts.
+            </p>
+          </div>
+          <div class="text-gray-700">
+            <h3 class="heading-md font-semibold mb-4">Education & Research</h3>
+            <ul class="space-y-3">
+              <li>
+                <span class="font-semibold">BTech in AI & ML</span>
+                <p>Oriental College of Technology, Bhopal</p>
+                <p class="text-gray-600">2nd Year (4th Semester)</p>
+              </li>
+              <li>
+                <span class="font-semibold">Research Focus</span>
+                <p>Facial Recognition for Identity Verification</p>
+                <p class="text-gray-600">Combining AI with Photography</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div class="text-gray-700">
+            <h3 class="heading-md font-semibold mb-4">Technical Skills</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-600">
+              <li>C++ Programming</li>
+              <li>Python Development</li>
+              <li>Data Structures & Algorithms</li>
+              <li>Artificial Intelligence</li>
+              <li>Digital Photography</li>
+              <li>Photo Editing & Processing</li>
+            </ul>
+          </div>
+          <div class="text-gray-700">
+            <h3 class="heading-md font-semibold mb-4">Current Role</h3>
+            <p class="mb-4">Program Organizer at Gudsky Research Foundation</p>
+            <p class="text-gray-600">Combining research with visual documentation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-gray-50 fade-in-section" id="gallery">
+    <div class="container mx-auto px-6">
+      <h2 class="heading-lg font-semibold text-center mb-12">Gallery</h2>
+      
+      <!-- Add category filters -->
+      <div class="flex justify-center space-x-8 mb-12">
+        <button 
+          onclick="filterGallery('all')" 
+          class="filter-button active"
+        >
+          All
+        </button>
+        <button 
+          onclick="filterGallery('Portrait')" 
+          class="filter-button"
+        >
+          Portraits
+        </button>
+        <button 
+          onclick="filterGallery('Landscape')" 
+          class="filter-button"
+        >
+          Landscapes
+        </button>
+        <button 
+          onclick="filterGallery('Event')" 
+          class="filter-button"
+        >
+          Events
+        </button>
+      </div>
+
+      <!-- Gallery container -->
+      <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Photos will be rendered here by JavaScript -->
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-white fade-in-section" id="services">
+    <div class="container mx-auto px-6">
+      <h2 class="heading-lg font-semibold text-center mb-12">Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3 class="service-title">Photography</h3>
+          <p class="service-description">
+            Professional photography services including event coverage, portraits, and artistic photography. Each session is enhanced with AI-powered editing for stunning results.
+          </p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3 class="service-title">AI Integration</h3>
+          <p class="service-description">
+            Cutting-edge AI solutions for image processing and facial recognition. Leveraging advanced algorithms to enhance and optimize your visual content.
+          </p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="service-title">Technical Development</h3>
+          <p class="service-description">
+            Custom software solutions using C++ and Python for photography workflows. Streamline your process with efficient, tailored technical solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-6 text-center">
+      <p class="font-light tracking-wider">© 2024 Vishal Photography. All rights reserved.</p>
+      <div class="mt-4 space-x-4">
+        <a class="social-icon text-white hover:text-accent transition duration-300" href="#" aria-label="Instagram profile">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a class="social-icon text-white hover:text-accent transition duration-300" href="#" aria-label="Facebook profile">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="social-icon text-white hover:text-accent transition duration-300" href="#" aria-label="Twitter profile">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const icon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateIcon(savedTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      updateIcon('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateIcon(newTheme);
+    });
+
+    function updateIcon(theme) {
+      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Only initialize if not a touch device
+      if (window.matchMedia("(pointer: fine)").matches) {
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursor-dot');
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+
+        // Update mouse position
+        document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          
+          // Update dot position immediately
+          cursorDot.style.left = `${mouseX}px`;
+          cursorDot.style.top = `${mouseY}px`;
+        });
+
+        // Animate cursor
+        function animate() {
+          // Smooth follow for main cursor
+          cursorX += (mouseX - cursorX) * 0.1;
+          cursorY += (mouseY - cursorY) * 0.1;
+          
+          cursor.style.left = `${cursorX}px`;
+          cursor.style.top = `${cursorY}px`;
+          
+          requestAnimationFrame(animate);
+        }
+
+        // Add hover effect for interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .social-icon');
+        
+        interactiveElements.forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            cursor.style.width = '40px';
+            cursor.style.height = '40px';
+          });
+          
+          el.addEventListener('mouseleave', () => {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+          });
+        });
+
+        // Start animation
+        animate();
+      }
+
+      // Your existing mobile menu code
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuBtn?.addEventListener('click', () => {
+        const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu?.classList.toggle('hidden');
+      });
+
+      // Add intersection observer for fade-in sections
+      const sections = document.querySelectorAll('.fade-in-section');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGallery();
+    });
+
+    // Performance optimizations and section visibility
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add performance optimizations
+      document.body.classList.add('smooth-scroll');
+      
+      // Optimize images
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.classList.add('backface-hidden', 'transform-gpu');
+      });
+
+      // Initialize sections
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        if (section.id !== 'home') {
+          section.classList.add('fade-in-section');
+        }
+      });
+
+      // Optimized Intersection Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      // Observe all sections except home
+      sections.forEach(section => {
+        if (section.id !== 'home') {
+          observer.observe(section);
+        }
+      });
+
+      // Optimize navigation
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    });
+
+    // Initialize gallery
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGallery();
+    });
+
+    // Update filterGallery function to handle active state
+    function filterGallery(category) {
+      const cards = document.querySelectorAll('.portfolio-card');
+      const buttons = document.querySelectorAll('.filter-button');
+      
+      // Update active button state
+      buttons.forEach(button => {
+        const buttonCategory = button.textContent.toLowerCase();
+        if (category === 'all' && buttonCategory === 'all') {
+          button.classList.add('active');
+        } else if (buttonCategory === category.toLowerCase()) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      });
+      
+      // Filter cards
+      requestAnimationFrame(() => {
+        cards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>
